@@ -3,7 +3,7 @@ class CreateMessages < ActiveRecord::Migration
     create_table :messages do |t|
       t.string :fact
       t.string :awereness
-      t.string :quote
+      t.integer :quote_id
       t.string :goal
 
       t.timestamps null: false

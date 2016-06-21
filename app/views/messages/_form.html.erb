@@ -18,30 +18,29 @@
       <%= f.text_area :fact, :class => "form-control" %>
     </div>
 </div>
+
 <div class="form-group">
   <label for="message_body" class="control-label col-md-4">2.気づき(「事実」から得た気づき)</label>
    <div class="col-md-6">
       <%= f.text_area :awereness, :class => "form-control" %>
     </div>
 
-     <div>
-       <div class="form-group">
-      <label for="message_body" class="control-label col-md-4">3.教訓(格言やことわざを引用)</p>
-      <select quote="select1">
-        <option value="1">七転八倒 つまづいたり ころんだりするほうが 自然なんだな 人間だもの -　相田みつを　-</option>
-        <option value="2">人間の最大の罪は不機嫌である。-　ゲーテ　-</option>
-        <option value="3">成し遂げんとした志をただ一回の敗北によって捨ててはいけない。-　シェイクスピア　-</option>
-      </select>
+<div>
+  <div class="form-group">
+      <label for="message_body" class="control-label col-md-4">3.教訓(格言やことわざを引用)</label>
+     
+      <%= f.collection_select :quote_id, Quote.all, :id, :name %>
     </div>
-    </div>
+</div>
 
 <div class="form-group">
   <label for="message_body" class="control-label col-md-4">4.宣言(明日への宣言)</label>
    <div class="col-md-6">
       <%= f.text_area :goal, :class => "form-control" %>
-      <%= f.submit class: "btn btn-sm btn-primary" %>
-    </div>
+      </div>
 </div>
+      <%= f.submit class: "btn btn-sm btn-primary" %>
+
 
   
 <% end %>

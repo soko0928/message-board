@@ -30,6 +30,7 @@ class MessagesController < ApplicationController
       # メッセージが保存できなかった時
       @messages = Message.all
       flash.now[:alert] = "メッセージの保存に失敗しました。"
+      render 'index'
     end
   end
 
@@ -40,7 +41,7 @@ class MessagesController < ApplicationController
   end
   private
   def message_params
-    params.require(:message).permit(:fact, :awereness, :quote, :goal)
+    params.require(:message).permit(:fact, :awereness, :quote_id, :goal)
   end
     def set_message
     @message = Message.find(params[:id])
