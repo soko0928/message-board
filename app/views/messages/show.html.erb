@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <% if @message.previous.present? %>
+  <%= link_to "←" , @message.previous %>
+  <% end %>
+  <%= @message.created_at %>
+  <% if @message.next.present? %>
+  <%= link_to "→" , @message.next %>
+  <% end %>
+  <div class="panel-heading">
+    4行日記
+
+　 <ol>
+      <li><%= @message.fact %></li>
+      <li><%= @message.awereness %></li>
+      <li><%= @message.quote %></li>
+      <li><%= @message.goal %></li>
+   </ol>
+        (<%= link_to "編集" , edit_message_path(@message) %>
+         <%= link_to "削除" , @message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+        )
+      <br>
+  </div>
+  <%= link_to "一覧" , root_path %>
+</div>

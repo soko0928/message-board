@@ -1,14 +1,19 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    メッセージ一覧
+    4行日記
   </div>
 
   <div class="panel-body">
     <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-        <%= message.body %>
-        (<%= link_to "edit" , edit_message_path(message) %>
-         <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+    <ol>
+      <li><%= message.fact %></li>
+      <li><%= message.awereness %></li>
+      <li><%= message.quote %></li>
+      <li><%= message.goal %></li>
+    </ol>
+        (<%= link_to "編集" , edit_message_path(message) %>
+         <%= link_to "削除" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+         <%= link_to "詳細" , message %>
         )
       <br>
     <% end %>
